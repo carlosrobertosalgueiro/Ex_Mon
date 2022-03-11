@@ -2,12 +2,15 @@ defmodule ExMon do
   alias ExMon.Player
   alias ExMon.Game
 
-  def create_player(move_avg, move_heal, move_rnd, name) do
-    Player.build(move_avg, move_heal, move_rnd, name)
+  @computer_name "PC_Carlos"
+
+  def create_player(name, move_avg, move_heal, move_rnd) do
+    Player.build(name, move_avg, move_heal, move_rnd)
   end
 
   def start_game(player) do
-    computer = create_player("PC_Carlos", :punch, :kick, :heal)
-    Game.start(computer, player)
+    @computer_name
+    |> create_player(:punch, :kick, :heal)
+    |> Game.start(player)
   end
 end
