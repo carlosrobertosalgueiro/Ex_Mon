@@ -14,4 +14,12 @@ defmodule ExMon.Game.Status do
   def attack(move) do
     IO.puts("\n====== Movimento de ataque #{move}. =====\n")
   end
+
+  def print_move_menssage(:computer, :attack, damage) do
+    IO.puts("\n====== The Player attacked the computer dealing #{damage} damage. =====\n")
+  end
+
+  def print_move_menssage(:player, :attack, damage) do
+    IO.puts("\n====== The Computer attacked the player dealing #{damage} damage. =====\n")
+  end
 end
