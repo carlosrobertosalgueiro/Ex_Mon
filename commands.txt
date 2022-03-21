@@ -1,0 +1,5 @@
+player = ExMon.create_player("carlos", :soco, :chute, :cura)
+
+ExMon.start_game(player)
+
+ExMon.make_move(:soco)
