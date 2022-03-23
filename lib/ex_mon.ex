@@ -18,6 +18,14 @@ defmodule ExMon do
   end
 
   def make_move(move) do
+    Game.info()
+    |> Map.get(:status)
+    |> handle_status(move)
+  end
+
+  def handle_status(:game_over,_move), do: Status.print_round_menssage(Game.info())
+
+  def handle_status(_other, move) do
     move
     |> Actions.fetch_move()
     |> do_move()
