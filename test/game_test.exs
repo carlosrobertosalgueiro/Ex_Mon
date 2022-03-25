@@ -62,27 +62,43 @@ defmodule ExMon.GameTest do
 
       assert expected_response == Game.info()
 
-      expected_response =
-        new_state = %{
-          computer: %Player{
-            life: 85,
-            moves: %{move_avg: :soco, move_heal: :cura, move_rnd: :chute},
-            name: "carlos"
-          },
-          player: %Player{
-            life: 50,
-            moves: %{move_avg: :soco, move_heal: :cura, move_rnd: :chute},
-            name: "PC_carlos"
-          },
-          status: :started,
-          turn: :player
-        }
+      new_state = %{
+        computer: %Player{
+          life: 85,
+          moves: %{move_avg: :soco, move_heal: :cura, move_rnd: :chute},
+          name: "carlos"
+        },
+        player: %Player{
+          life: 50,
+          moves: %{move_avg: :soco, move_heal: :cura, move_rnd: :chute},
+          name: "PC_carlos"
+        },
+        status: :started,
+        turn: :player
+      }
 
       Game.update(new_state)
 
       expected_response = %{new_state | turn: :computer, status: :continue}
 
       assert expected_response == Game.info()
+    end
+  end
+
+  describe "player" do
+    test "return the last player" do
+      player = ExMon.create_player("carlos", :soco, :chute, :cura)
+      computer = ExMon.create_player("PC_carlos", :soco, :chute, :cura)
+
+      Game.start(player, computer)
+
+      expected_response = %Player{
+        life: 100,
+        moves: %{move_avg: :soco, move_heal: :cura, move_rnd: :chute},
+        name: "PC_carlos"
+      }
+
+      assert expected_response == Game.player()
     end
   end
 end
