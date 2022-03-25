@@ -101,4 +101,16 @@ defmodule ExMon.GameTest do
       assert expected_response == Game.player()
     end
   end
+
+  describe "turn" do
+    test "return the last turn" do
+      player = ExMon.create_player("carlos", :soco, :chute, :cura)
+      computer = ExMon.create_player("PC_carlos", :soco, :chute, :cura)
+
+      Game.start(player, computer)
+
+      expected_response = :player
+      assert expected_response == Game.turn()
+    end
+  end
 end
