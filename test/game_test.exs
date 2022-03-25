@@ -110,6 +110,7 @@ defmodule ExMon.GameTest do
       Game.start(player, computer)
 
       expected_response = :player
+
       assert expected_response == Game.turn()
     end
   end
