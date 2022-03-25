@@ -14,7 +14,8 @@ defmodule ExMon do
     @computer_name
     |> create_player(:punch, :kick, :heal)
     |> Game.start(player)
-     Status.print_round_menssage(Game.info())
+
+    Status.print_round_menssage(Game.info())
   end
 
   def make_move(move) do
@@ -23,9 +24,9 @@ defmodule ExMon do
     |> handle_status(move)
   end
 
-  def handle_status(:game_over,_move), do: Status.print_round_menssage(Game.info())
+  defp handle_status(:game_over, _move), do: Status.print_round_menssage(Game.info())
 
-  def handle_status(_other, move) do
+  defp handle_status(_other, move) do
     move
     |> Actions.fetch_move()
     |> do_move()
@@ -33,21 +34,21 @@ defmodule ExMon do
     computer_move(Game.info())
   end
 
-  def do_move({:error, move}), do: Status.print_wrong_move_message(move)
+  defp do_move({:error, move}), do: Status.print_wrong_move_message(move)
 
-  def do_move({:ok, move}) do
+  defp do_move({:ok, move}) do
     case move do
       :move_heal -> Actions.heal()
       move -> Actions.attack(move)
     end
-      Status.print_round_menssage(Game.info())
-   end
 
-   defp computer_move(%{turn: :computer, status: :continue}) do
+    Status.print_round_menssage(Game.info())
+  end
+
+  defp computer_move(%{turn: :computer, status: :continue}) do
     move = {:ok, Enum.random(@computer_moves)}
     do_move(move)
-   end
+  end
 
-   defp computer_move(_), do: :ok
-
+  defp computer_move(_), do: :ok
 end
