@@ -4,26 +4,32 @@
 jogo produzido em Elixir baseado em turnos que conta com um player contra o
 computador.
 
-###  Construído com
+##  Construído com
 
 * [Elixir](https://elixir-lang.org/)
 * [Erlang](https://www.erlang.org/)
 * [Credo](https://github.com/rrrene/credo)
 
-## Installation
+## Pré-requisitos
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ex_mon` to your list of dependencies in `mix.exs`:
+Instale o elixir de acordo com o seu sistema operacional atravéz do link abaixo:
 
-```elixir
-def deps do
-  [
-    {:ex_mon, "~> 0.1.0"}
-  ]
-end
+* [Instalação Elixir](https://https://elixir-lang.org/install.html)
+
+## Instalação
+
+1-Clonar o repositório.
+
+```sh
+https://github.com/carlosrobertosalgueiro/Ex_Mon.git
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/ex_mon>.
+2-Instale o pacote de dependêcias  usando o comando.
+
+```sh
+mix deps.get
+```
+
+
+
 
