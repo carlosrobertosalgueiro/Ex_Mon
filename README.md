@@ -4,6 +4,12 @@
 jogo produzido em Elixir baseado em turnos que conta com um player contra o
 computador.
 
+###  Construído com
+
+* [Elixir](https://elixir-lang.org/)
+* [Erlang](https://www.erlang.org/)
+* [Credo](https://github.com/rrrene/credo)
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
