@@ -1,8 +1,8 @@
 # ExMon
 ## Sobre o projeto
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/carlosrobertosalgueiro/Ex_Mon)
-
+jogo produzido em Elixir baseado em turnos que conta com um player contra o
+computador.
 
 ## Installation
 
